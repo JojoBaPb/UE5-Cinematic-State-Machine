@@ -1,0 +1,11 @@
+.vs/
+*.sln
+*.suo
+Binaries/
+Build/
+DerivedDataCache/
+Intermediate/
+Saved/
+Script/
+*.uproject.user
+.DS_Store
