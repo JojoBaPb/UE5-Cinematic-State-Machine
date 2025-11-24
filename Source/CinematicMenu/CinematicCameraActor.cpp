@@ -13,18 +13,18 @@ ACinematicCameraActor::ACinematicCameraActor()
 void ACinematicCameraActor::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 	// Initialize target to current location so we don't snap weirdly at start
 	TargetLocation = GetActorLocation();
 	TargetRotation = GetActorRotation();
 
 	// Optional: Possess this actor immediately as the view target
-	APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0);
+	APlayerController *PC = UGameplayStatics::GetPlayerController(this, 0);
 	if (PC)
 	{
 		PC->SetViewTargetWithBlend(this, 0.0f);
 	}
-	
+
 	// Start at Main Menu by default
 	SetMenuState(EMenuState::MainMenu);
 }
@@ -54,7 +54,7 @@ void ACinematicCameraActor::SetMenuState(EMenuState NewState)
 	if (CameraTargets.Contains(NewState))
 	{
 		CurrentState = NewState;
-		
+
 		// Retrieve the config struct
 		FMenuCameraTarget TargetData = CameraTargets[NewState];
 
